@@ -3,7 +3,7 @@ import {
   FiLayers, FiPackage, FiArchive, FiAlertCircle,
   FiShoppingCart, FiCheckCircle, FiAlertTriangle, FiBell,
 } from "react-icons/fi";
-import { SummaryCard, StatusBadge, Card, CardHeader, Modal } from "../component/ui/index";
+import { SummaryCard, StatusBadge, Card, CardHeader, Modal } from "../StoreComponent/ui/index";
 import { SKUS, LOW_STOCK, WORK_ORDERS, CHALLANS } from "../data/mockData";
 
 export default function Dashboard() {

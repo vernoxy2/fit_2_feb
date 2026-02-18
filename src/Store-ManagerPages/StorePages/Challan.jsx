@@ -3,7 +3,7 @@ import {
   FiBell, FiAlertTriangle, FiFileText, FiEye,
   FiCheckCircle, FiClock,
 } from "react-icons/fi";
-import { StatusBadge, Card, CardHeader, Modal } from "../component/ui/index";
+import { StatusBadge, Card, CardHeader, Modal } from "../StoreComponent/ui/index";
 import { CHALLANS } from "../data/mockData";
 
 export default function Challan() {
