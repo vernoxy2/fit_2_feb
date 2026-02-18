@@ -23,7 +23,7 @@ export default function Sidebar({ active, onChange, open }) {
         {open && (
           <div>
             <p className="text-white text-sm font-bold whitespace-nowrap">ERP Suite</p>
-            <p className="text-slate-500 text-[10px] whitespace-nowrap">Master Admin</p>
+            <p className="text-slate-200 text-[10px] whitespace-nowrap font-bold">Master Admin</p>
           </div>
         )}
       </div>

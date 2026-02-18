@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   FiPlay, FiCheck, FiTruck, FiClock, FiCheckCircle,
 } from "react-icons/fi";
-import { StatusBadge, Card, CardHeader, Modal } from "../component/ui/index";
+import { StatusBadge, Card, CardHeader, Modal } from "../StoreComponent/ui/index";
 import { DISPATCHES } from "../data/mockData";
 
 export default function Dispatch() {
