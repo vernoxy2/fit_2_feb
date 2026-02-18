@@ -92,9 +92,7 @@ const ADMIN_ROUTES = {
   '/admin/settings':  'settings',
 };
 
-
 // ADMIN PANEL  →  localhost:5173/admin
-
 function AdminShell() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -105,7 +103,6 @@ function AdminShell() {
     const path = Object.keys(ADMIN_ROUTES).find(k => ADMIN_ROUTES[k] === page) ?? '/admin';
     navigate(path);
   };
-
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <AdminSidebar
@@ -155,7 +152,6 @@ function StoreShell() {
     </Routes>
   );
 }
-
 // ─────────────────────────────────────────────────────────────────────────────
 // ROOT APP
 // ─────────────────────────────────────────────────────────────────────────────
