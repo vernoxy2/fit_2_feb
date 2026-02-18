@@ -2,17 +2,19 @@ import { useState } from 'react';
 import Icon from '../layout/ui/Icon';
 import { Badge } from '../layout/ui/index';
 import { NOTIFICATIONS } from '../../data/mockData';
-
-const PAGE_LABELS = {
-  dashboard: "Dashboard",
-  companies: "Companies",
-  users:     "Users & Roles",
-  buckets:   "Buckets",
-  reports:   "Reports",
-  settings:  "Settings",
-};
+import { auth } from '../../firebase';
+import { signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header({ sidebarOpen, setSidebarOpen, activePage }) {
+  const PAGE_LABELS = {
+    dashboard: "Dashboard",
+    companies: "Companies",
+    users:     "Users & Roles",
+    buckets:   "Buckets",
+    reports:   "Reports",
+    settings:  "Settings",
+  };
   const [profileOpen, setProfileOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
   const critCount = NOTIFICATIONS.filter(n => n.severity === "critical").length;
@@ -23,7 +25,11 @@ export default function Header({ sidebarOpen, setSidebarOpen, activePage }) {
     info:     "bg-blue-50 border-l-2 border-blue-400",
   };
   const dotColor = { critical: "bg-red-500", warning: "bg-amber-400", info: "bg-blue-400" };
-
+  const navigate = useNavigate();
+const handleLogout = async () => {
+    await signOut(auth);
+    navigate('/login');
+  };
   return (
     <header className="h-16 bg-white border-b border-slate-100 flex items-center px-5 gap-4 sticky top-0 z-20 shadow-sm">
       {/* Hamburger */}
@@ -121,7 +127,9 @@ export default function Header({ sidebarOpen, setSidebarOpen, activePage }) {
             <button className="w-full flex items-center gap-2 px-4 py-2.5 text-xs text-slate-600 hover:bg-slate-50 transition-colors">
               <Icon name="settings" className="w-4 h-4" /> Profile Settings
             </button>
-            <button className="w-full flex items-center gap-2 px-4 py-2.5 text-xs text-red-600 hover:bg-red-50 transition-colors border-t border-slate-50">
+            <button
+             onClick={handleLogout}
+            className="w-full flex items-center gap-2 px-4 py-2.5 text-xs text-red-600 hover:bg-red-50 transition-colors border-t border-slate-50">
               <Icon name="logout" className="w-4 h-4" /> Logout
             </button>
           </div>
