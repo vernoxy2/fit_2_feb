@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +13,97 @@ body {
   font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #080d1a;
 }
 
+/* ── Animations ───────────────────────────────────────────────── */
+@keyframes gp1 {
+  0%, 100% { opacity: .5; transform: scale(1); }
+  50%       { opacity: .9; transform: scale(1.1); }
+}
+@keyframes gp2 {
+  0%, 100% { opacity: .4; transform: scale(1); }
+  50%       { opacity: .7; transform: scale(1.08); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
+/* ── Glow blobs ───────────────────────────────────────────────── */
+.f2f-glow-1 { animation: gp1 9s ease-in-out infinite; }
+.f2f-glow-2 { animation: gp2 12s ease-in-out infinite; }
+
+/* ── Input ────────────────────────────────────────────────────── */
+.f2f-input {
+  padding: 11px 14px 11px 38px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: #e2e8f0;
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.f2f-input:focus {
+  outline: none;
+  border-color: #fb923c;
+   box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.1);
+}
+.f2f-input::placeholder {
+  color: #2d3f55;
+}
+
+/* ── Label ────────────────────────────────────────────────────── */
+.f2f-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #64748b;
+  letter-spacing: 0.3px;
+}
+
+/* ── Submit / Action Button ───────────────────────────────────── */
+.f2f-btn {
+  padding: 12px;
+   background: linear-gradient(135deg, #fb923c, #f97316);
+  border: none;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(251, 146, 60, 0.25);
+}
+.f2f-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+.f2f-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Error box ────────────────────────────────────────────────── */
+.f2f-error-box {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: #fca5a5;
+}
+
+/* ── Spinner ──────────────────────────────────────────────────── */
+.f2f-spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}

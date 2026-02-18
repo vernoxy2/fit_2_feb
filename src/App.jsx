@@ -61,35 +61,43 @@
 //   );
 // }
 
-import { useState } from 'react';
+import { useState } from "react";
 import {
-  BrowserRouter, Routes, Route, Navigate,
-  useNavigate, useLocation
-} from 'react-router-dom';
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
+
+// -------Authntication---------
+import Login from "./authntication/login";
+import ProtectedRoute from "./authntication/ProtectedRoute";
 
 // ── ADMIN layout — src/component/layout/ ─────────────────────────────────────
-import AdminSidebar  from './component/layout/Sidebar';
-import AdminHeader   from './component/layout/Header';
-import DashboardPage from './pages/DashboardPage';
-import CompaniesPage from './pages/CompaniesPage';
-import UsersPage     from './pages/UsersPage';
-import { BucketsPage, ReportsPage, SettingsPage } from './pages/OtherPages';
+import AdminSidebar from "./component/layout/Sidebar";
+import AdminHeader from "./component/layout/Header";
+import DashboardPage from "./pages/DashboardPage";
+import CompaniesPage from "./pages/CompaniesPage";
+import UsersPage from "./pages/UsersPage";
+import { BucketsPage, ReportsPage, SettingsPage } from "./pages/OtherPages";
 
 // ── STORE layout — src/Store-ManagerPages/StoreComponent/layout/ ──────────────
-import StoreLayout    from './Store-ManagerPages/StoreComponent/layout/Layout';
-import StoreDashboard from './Store-ManagerPages/StorePages/Dashboard';
-import Stock          from './Store-ManagerPages/StorePages/Stock';
-import Dispatch       from './Store-ManagerPages/StorePages/Dispatch';
-import Challan        from './Store-ManagerPages/StorePages/Challan';
+import StoreLayout from "./Store-ManagerPages/StoreComponent/layout/Layout";
+import StoreDashboard from "./Store-ManagerPages/StorePages/Dashboard";
+import Stock from "./Store-ManagerPages/StorePages/Stock";
+import Dispatch from "./Store-ManagerPages/StorePages/Dispatch";
+import Challan from "./Store-ManagerPages/StorePages/Challan";
 
 // ── Admin sidebar nav mapping ─────────────────────────────────────────────────
 const ADMIN_ROUTES = {
-  '/admin':           'dashboard',
-  '/admin/companies': 'companies',
-  '/admin/users':     'users',
-  '/admin/buckets':   'buckets',
-  '/admin/reports':   'reports',
-  '/admin/settings':  'settings',
+  "/admin": "dashboard",
+  "/admin/companies": "companies",
+  "/admin/users": "users",
+  "/admin/buckets": "buckets",
+  "/admin/reports": "reports",
+  "/admin/settings": "settings",
 };
 
 // ADMIN PANEL  →  localhost:5173/admin
@@ -98,9 +106,11 @@ function AdminShell() {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const sidebarWidth = sidebarOpen ? 224 : 64;
-  const activePage = ADMIN_ROUTES[location.pathname] ?? 'dashboard';
+  const activePage = ADMIN_ROUTES[location.pathname] ?? "dashboard";
   const handleChange = (page) => {
-    const path = Object.keys(ADMIN_ROUTES).find(k => ADMIN_ROUTES[k] === page) ?? '/admin';
+    const path =
+      Object.keys(ADMIN_ROUTES).find((k) => ADMIN_ROUTES[k] === page) ??
+      "/admin";
     navigate(path);
   };
   return (
@@ -121,12 +131,12 @@ function AdminShell() {
         />
         <main className="flex-1 p-6">
           <Routes>
-            <Route index             element={<DashboardPage />} />
-            <Route path="companies"  element={<CompaniesPage />} />
-            <Route path="users"      element={<UsersPage />} />
-            <Route path="buckets"    element={<BucketsPage />} />
-            <Route path="reports"    element={<ReportsPage />} />
-            <Route path="settings"   element={<SettingsPage />} />
+            <Route index element={<DashboardPage />} />
+            <Route path="companies" element={<CompaniesPage />} />
+            <Route path="users" element={<UsersPage />} />
+            <Route path="buckets" element={<BucketsPage />} />
+            <Route path="reports" element={<ReportsPage />} />
+            <Route path="settings" element={<SettingsPage />} />
           </Routes>
         </main>
         <footer className="px-6 py-3 border-t border-slate-100 bg-white">
@@ -143,11 +153,11 @@ function StoreShell() {
   return (
     <Routes>
       <Route element={<StoreLayout />}>
-        <Route index            element={<Navigate to="dashboard" replace />} />
+        <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<StoreDashboard />} />
-        <Route path="stock"     element={<Stock />} />
-        <Route path="dispatch"  element={<Dispatch />} />
-        <Route path="challan"   element={<Challan />} />
+        <Route path="stock" element={<Stock />} />
+        <Route path="dispatch" element={<Dispatch />} />
+        <Route path="challan" element={<Challan />} />
       </Route>
     </Routes>
   );
@@ -159,14 +169,28 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Default → /admin */}
-        <Route path="/"        element={<Navigate to="/admin" replace />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<Login />} />
 
-        {/* Admin Panel */}
-        <Route path="/admin/*" element={<AdminShell />} />
+        <Route
+          path="/admin/*"
+          element={
+            <ProtectedRoute allowedRole="admin">
+              <AdminShell />
+            </ProtectedRoute>
+          }
+        />
 
-        {/* Store Panel */}
-        <Route path="/store/*" element={<StoreShell />} />
+        <Route
+          path="/store/*"
+          element={
+            <ProtectedRoute allowedRole="user" allowedDept="warehouse">
+              <StoreShell />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
   );
