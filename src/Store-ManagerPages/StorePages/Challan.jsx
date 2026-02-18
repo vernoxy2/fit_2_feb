@@ -8,7 +8,6 @@ import { CHALLANS } from "../data/mockData";
 
 export default function Challan() {
   const [detail, setDetail] = useState(null);
-
   const overdue   = CHALLANS.filter(c => c.status === "overdue");
   const dueSoon   = CHALLANS.filter(c => c.status === "due_soon");
   const pending   = CHALLANS.filter(c => c.status === "pending");
