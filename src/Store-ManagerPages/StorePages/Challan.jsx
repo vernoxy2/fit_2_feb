@@ -3,12 +3,11 @@ import {
   FiBell, FiAlertTriangle, FiFileText, FiEye,
   FiCheckCircle, FiClock,
 } from "react-icons/fi";
-import { StatusBadge, Card, CardHeader, Modal } from "../component/ui/index";
+import { StatusBadge, Card, CardHeader, Modal } from "../StoreComponent/ui/index";
 import { CHALLANS } from "../data/mockData";
 
 export default function Challan() {
   const [detail, setDetail] = useState(null);
-
   const overdue   = CHALLANS.filter(c => c.status === "overdue");
   const dueSoon   = CHALLANS.filter(c => c.status === "due_soon");
   const pending   = CHALLANS.filter(c => c.status === "pending");

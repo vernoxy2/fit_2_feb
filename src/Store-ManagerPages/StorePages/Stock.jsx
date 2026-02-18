@@ -3,7 +3,7 @@ import {
   FiSearch, FiEye, FiClock, FiFilter,
   FiArrowUp, FiArrowDown, FiAlertCircle,
 } from "react-icons/fi";
-import { StatusBadge, Card, CardHeader, Modal, SearchInput } from "../component/ui/index";
+import { StatusBadge, Card, CardHeader, Modal, SearchInput } from "../StoreComponent/ui/index";
 import { SKUS, STOCK_LEDGER } from "../data/mockData";
 
 const BUCKETS = ["All", ...new Set(SKUS.map(s => s.bucket))];
