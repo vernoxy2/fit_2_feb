@@ -8,7 +8,7 @@ import { SKUS, STOCK_LEDGER } from "../data/mockData";
 
 const BUCKETS = ["All", ...new Set(SKUS.map(s => s.bucket))];
 
-export default function Stock() {
+export default function Stocks() {
   const [search, setSearch]       = useState("");
   const [bucket, setBucket]       = useState("All");
   const [filterLow, setFilterLow] = useState(false);
