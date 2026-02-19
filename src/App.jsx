@@ -23,7 +23,7 @@ import { BucketsPage, ReportsPage, SettingsPage } from "./pages/OtherPages";
 // ── STORE layout — src/Store-ManagerPages/StoreComponent/layout/ ──────────────
 import StoreLayout from "./Store-ManagerPages/StoreComponent/layout/Layout";
 import StoreDashboard from "./Store-ManagerPages/SalesUserPages/Dashboard";
-import Stock from "./Store-ManagerPages/SalesUserPages/Stocks";
+import Stocks from "./Store-ManagerPages/SalesUserPages/Stocks";
 import Dispatch from "./Store-ManagerPages/SalesUserPages/Dispatch";
 import Challan from "./Store-ManagerPages/SalesUserPages/Challan";
 import Returns from "./Store-ManagerPages/SalesUserPages/Returns";
