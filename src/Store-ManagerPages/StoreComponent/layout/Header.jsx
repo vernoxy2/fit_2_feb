@@ -20,6 +20,7 @@ export default function Header({ sidebarOpen, setSidebarOpen }) {
     "/store/stock": "Stock Management",
     "/store/dispatch": "Dispatch",
     "/store/challan": "Challan & Invoices",
+    "store/returns":  "Returns & Adjustments",
   };
   const navigate = useNavigate();
   const handleLogout = async () => {
