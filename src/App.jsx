@@ -22,11 +22,11 @@ import { BucketsPage, ReportsPage, SettingsPage } from "./pages/OtherPages";
 
 // ── STORE layout — src/Store-ManagerPages/StoreComponent/layout/ ──────────────
 import StoreLayout from "./Store-ManagerPages/StoreComponent/layout/Layout";
-import StoreDashboard from "./Store-ManagerPages/SalesUserPages/Dashboard";
-import Stocks from "./Store-ManagerPages/SalesUserPages/Stocks";
-import Dispatch from "./Store-ManagerPages/SalesUserPages/Dispatch";
-import Challan from "./Store-ManagerPages/SalesUserPages/Challan";
-import Returns from "./Store-ManagerPages/SalesUserPages/Returns";
+import StoreDashboard from "./Store-ManagerPages/StoreUserPages/Dashboard";
+import Stocks from "./Store-ManagerPages/StoreUserPages/Stocks";
+import Dispatch from "./Store-ManagerPages/StoreUserPages/Dispatch";
+import Challan from "./Store-ManagerPages/StoreUserPages/Challan";
+import Returns from "./Store-ManagerPages/StoreUserPages/Returns";
 
 // ── SALES layout (NEW) ────────────────────────────────────────────
 import SalesLayout from "./Sales-ManagerPages/SalesComponent/layout/Layout";
@@ -38,6 +38,10 @@ import TechnicalApproval from "./Sales-ManagerPages/SalesPages/TechnicalApproval
 import PurchaseOrders from "./Sales-ManagerPages/SalesPages/PurchaseOrders";
 import PODetails from "./Sales-ManagerPages/SalesPages/PODetails";
 import UploadInvoice from "./Sales-ManagerPages/SalesPages/UploadInvoice";
+import SalesStock from "./Sales-ManagerPages/SalesPages/SalesStock";
+import UploadWorkOrder from "./Sales-ManagerPages/SalesPages/UploadWorkOrder";
+import UploadPurchaseOrder from "./Sales-ManagerPages/SalesPages/UploadPurchaseOrder";
+import Products from "./Sales-ManagerPages/SalesPages/Products";
 
 // ── Admin sidebar nav mapping ─────────────────────────────────────────────────
 const ADMIN_ROUTES = {
@@ -121,11 +125,14 @@ function SalesShell() {
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<SalesDashboard />} />
         <Route path="work-orders" element={<WorkOrders />} />
-        {/* <Route path="work-stock" element={<Stocks />} /> */}
+        <Route path="work-stock" element={<SalesStock />} />
         <Route path="work-orders/create" element={<CreateWorkOrder />} />
+        <Route path="work-orders/upload" element={<UploadWorkOrder />} /> 
+        <Route path="purchase-orders/upload" element={<UploadPurchaseOrder />} />
         <Route path="work-orders/:id" element={<WorkOrderDetails />} />
         <Route path="purchase-orders" element={<PurchaseOrders />} />
         <Route path="purchase-orders/:id" element={<PODetails />} />
+        <Route path="products" element={<Products />} />
         <Route
           path="purchase-orders/:id/upload-invoice"
           element={<UploadInvoice />}
