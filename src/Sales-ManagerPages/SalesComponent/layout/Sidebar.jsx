@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { FiHome, FiFileText, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FiHome, FiFileText, FiPackage, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const NAV_ITEMS = [
-  { to: "/sales/dashboard",    label: "Dashboard",   icon: FiHome },
-  { to: "/sales/work-orders",  label: "Work Orders", icon: FiFileText },
+  { to: "/sales/dashboard",        label: "Dashboard",       icon: FiHome },
+  { to: "/sales/work-orders",      label: "Work Orders",     icon: FiFileText },
+  { to: "/sales/purchase-orders",  label: "Purchase Orders", icon: FiPackage },
 ];
 
 export default function SalesSidebar({ open, setOpen }) {
