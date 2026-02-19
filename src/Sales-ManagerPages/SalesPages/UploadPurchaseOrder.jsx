@@ -61,7 +61,7 @@ export default function UploadPurchaseOrder() {
           onClick={() => navigate("/sales/purchase-orders")}
           className="flex items-center gap-1.5 text-slate-400 hover:text-indigo-600 transition-colors mb-4 text-xs font-semibold"
         >
-          <FiArrowLeft size={13} /> Back to Work Orders
+          <FiArrowLeft size={13} /> Back to Purchase Orders
         </button>
 
         {/* Card */}
