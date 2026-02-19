@@ -1,24 +1,12 @@
 import { NavLink } from "react-router-dom";
-// import {
-//   FiHome, FiBox, FiTruck, FiFileText, FiChevronLeft, FiChevronRight,
-// } from "react-icons/fi";
-import { FiHome, FiBox, FiTruck, FiFileText, FiChevronLeft, FiChevronRight, FiRotateCcw } from "react-icons/fi"
+import { FiHome, FiFileText, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-// const NAV_ITEMS = [
-//   { to: "/",        label: "Dashboard", icon: FiHome },
-//   { to: "/stock",   label: "Stock",     icon: FiBox },
-//   { to: "/dispatch",label: "Dispatch",  icon: FiTruck },
-//   { to: "/challan", label: "Challan",   icon: FiFileText },
-// ];
 const NAV_ITEMS = [
-  { to: "/store/dashboard", label: "Dashboard" , icon: FiHome },
-  { to: "/store/stock",     label: "Stock",     icon: FiBox },
-  { to: "/store/dispatch",  label: "Dispatch" , icon: FiTruck },
-  { to: "/store/challan",   label: "Challan",   icon: FiFileText },
-  { to: "/store/returns", label: "Returns",   icon: FiRotateCcw },
+  { to: "/sales/dashboard",    label: "Dashboard",   icon: FiHome },
+  { to: "/sales/work-orders",  label: "Work Orders", icon: FiFileText },
 ];
 
-export default function Sidebar({ open, setOpen }) {
+export default function SalesSidebar({ open, setOpen }) {
   return (
     <aside
       className="fixed top-0 left-0 h-full bg-slate-900 flex flex-col z-30 transition-all duration-300 overflow-hidden"
@@ -26,12 +14,12 @@ export default function Sidebar({ open, setOpen }) {
     >
       {/* Logo */}
       <div className={`flex items-center h-16 px-4 border-b border-white/5 flex-shrink-0 ${open ? "gap-3" : "justify-center"}`}>
-        <div className="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center flex-shrink-0">
-          <FiBox className="text-white" size={16} />
+        <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center flex-shrink-0">
+          <FiFileText className="text-white" size={16} />
         </div>
         {open && (
           <div>
-            <p className="text-white text-sm font-bold whitespace-nowrap leading-tight">Store Manager</p>
+            <p className="text-white text-sm font-bold whitespace-nowrap leading-tight">Sales User</p>
             <p className="text-slate-500 text-[10px] whitespace-nowrap">ERP Suite</p>
           </div>
         )}
@@ -48,12 +36,12 @@ export default function Sidebar({ open, setOpen }) {
           <div key={to} className="relative group">
             <NavLink
               to={to}
-              end={to === "/"}
+              end={to === "/sales/dashboard"}
               className={({ isActive }) =>
                 `flex items-center h-10 transition-all gap-3
                 ${open ? "px-4" : "justify-center px-0"}
                 ${isActive
-                  ? "bg-teal-600/20 text-teal-400 border-r-2 border-teal-500"
+                  ? "bg-indigo-600/20 text-indigo-400 border-r-2 border-indigo-500"
                   : "text-slate-400 hover:bg-white/5 hover:text-white"
                 }`
               }
