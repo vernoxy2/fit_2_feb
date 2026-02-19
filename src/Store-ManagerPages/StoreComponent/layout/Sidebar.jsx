@@ -4,21 +4,14 @@ import { NavLink } from "react-router-dom";
 // } from "react-icons/fi";
 import { FiHome, FiBox, FiTruck, FiFileText, FiChevronLeft, FiChevronRight, FiRotateCcw } from "react-icons/fi"
 
-// const NAV_ITEMS = [
-//   { to: "/",        label: "Dashboard", icon: FiHome },
-//   { to: "/stock",   label: "Stock",     icon: FiBox },
-//   { to: "/dispatch",label: "Dispatch",  icon: FiTruck },
-//   { to: "/challan", label: "Challan",   icon: FiFileText },
-// ];
-const NAV_ITEMS = [
-  { to: "/store/dashboard", label: "Dashboard" , icon: FiHome },
-  { to: "/store/stock",     label: "Stock",     icon: FiBox },
-  { to: "/store/dispatch",  label: "Dispatch" , icon: FiTruck },
-  { to: "/store/challan",   label: "Challan",   icon: FiFileText },
-  { to: "/store/returns", label: "Returns",   icon: FiRotateCcw },
-];
-
 export default function Sidebar({ open, setOpen }) {
+  const NAV_ITEMS = [
+    { to: "/store/dashboard", label: "Dashboard" , icon: FiHome },
+    { to: "/store/stock",     label: "Stock",     icon: FiBox },
+    { to: "/store/dispatch",  label: "Dispatch" , icon: FiTruck },
+    { to: "/store/challan",   label: "Challan",   icon: FiFileText },
+    { to: "/store/returns", label: "Returns",   icon: FiRotateCcw },
+  ];
   return (
     <aside
       className="fixed top-0 left-0 h-full bg-slate-900 flex flex-col z-30 transition-all duration-300 overflow-hidden"

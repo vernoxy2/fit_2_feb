@@ -125,7 +125,6 @@ function SalesShell() {
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<SalesDashboard />} />
         <Route path="work-orders" element={<WorkOrders />} />
-        <Route path="work-stock" element={<SalesStock />} />
         <Route path="work-orders/create" element={<CreateWorkOrder />} />
         <Route path="work-orders/upload" element={<UploadWorkOrder />} /> 
         <Route path="purchase-orders/upload" element={<UploadPurchaseOrder />} />
@@ -133,6 +132,7 @@ function SalesShell() {
         <Route path="purchase-orders" element={<PurchaseOrders />} />
         <Route path="purchase-orders/:id" element={<PODetails />} />
         <Route path="products" element={<Products />} />
+        <Route path="sales-stock" element={<SalesStock />} />
         <Route
           path="purchase-orders/:id/upload-invoice"
           element={<UploadInvoice />}

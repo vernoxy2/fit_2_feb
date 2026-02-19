@@ -3,7 +3,7 @@
 // ═══════════════════════════════════════════════════════════
 
 export const SKUS = [
-  { id: 1, name: "Bearing 6205-ZZ", stock: 45, unit: "pcs", description: "Deep groove ball bearing" },
+  // { id: 1, name: "Bearing 6205-ZZ", stock: 45, unit: "pcs", description: "Deep groove ball bearing" },
   { id: 2, name: "Copper Wire 1.5mm", stock: 120, unit: "m", description: "Single core copper conductor" },
   { id: 3, name: "Industrial Filter FX-90", stock: 8, unit: "pcs", description: "High efficiency filter" },
   { id: 4, name: "Steel Bolt M12x50", stock: 340, unit: "pcs", description: "Hex head bolt with nut" },
@@ -272,15 +272,16 @@ export const WO_STATUSES = {
   completed: { label: "Completed", color: "green" },
 };
 
-export const STOCK_LEDGER = [{
-    date: "2026-02-17",
-    sku: "Bearing 6205-ZZ",
-    type: "OUT",
-    qty: 10,
-    balance: 4,
-    ref: "WO-2024-0038",
-    by: "Rajesh M."
-  },
+export const STOCK_LEDGER = [
+  // {
+  //   date: "2026-02-17",
+  //   sku: "Bearing 6205-ZZ",
+  //   type: "OUT",
+  //   qty: 10,
+  //   balance: 4,
+  //   ref: "WO-2024-0038",
+  //   by: "Rajesh M."
+  // },
   {
     date: "2026-02-16",
     sku: "Bearing 6205-ZZ",
