@@ -23,7 +23,7 @@ import { BucketsPage, ReportsPage, SettingsPage } from "./pages/OtherPages";
 // ── STORE layout — src/Store-ManagerPages/StoreComponent/layout/ ──────────────
 import StoreLayout from "./Store-ManagerPages/StoreComponent/layout/Layout";
 import StoreDashboard from "./Store-ManagerPages/SalesUserPages/Dashboard";
-import Stock from "./Store-ManagerPages/SalesUserPages/Stock";
+import Stock from "./Store-ManagerPages/SalesUserPages/Stocks";
 import Dispatch from "./Store-ManagerPages/SalesUserPages/Dispatch";
 import Challan from "./Store-ManagerPages/SalesUserPages/Challan";
 import Returns from "./Store-ManagerPages/SalesUserPages/Returns";
@@ -35,6 +35,9 @@ import WorkOrders from "./Sales-ManagerPages/SalesPages/WorkOrders";
 import CreateWorkOrder from "./Sales-ManagerPages/SalesPages/CreateWorkOrder";
 import WorkOrderDetails from "./Sales-ManagerPages/SalesPages/WorkOrderDetails";
 import TechnicalApproval from "./Sales-ManagerPages/SalesPages/TechnicalApproval";
+import PurchaseOrders from "./Sales-ManagerPages/SalesPages/PurchaseOrders";
+import PODetails from "./Sales-ManagerPages/SalesPages/PODetails";
+import UploadInvoice from "./Sales-ManagerPages/SalesPages/UploadInvoice";
 
 // ── Admin sidebar nav mapping ─────────────────────────────────────────────────
 const ADMIN_ROUTES = {
@@ -101,7 +104,7 @@ function StoreShell() {
       <Route element={<StoreLayout />}>
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<StoreDashboard />} />
-        <Route path="stock" element={<Stock />} />
+        <Route path="stock" element={<Stocks />} />
         <Route path="dispatch" element={<Dispatch />} />
         <Route path="challan" element={<Challan />} />
         <Route path="returns" element={<Returns />} />
@@ -118,8 +121,15 @@ function SalesShell() {
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<SalesDashboard />} />
         <Route path="work-orders" element={<WorkOrders />} />
+        {/* <Route path="work-stock" element={<Stocks />} /> */}
         <Route path="work-orders/create" element={<CreateWorkOrder />} />
         <Route path="work-orders/:id" element={<WorkOrderDetails />} />
+        <Route path="purchase-orders" element={<PurchaseOrders />} />
+        <Route path="purchase-orders/:id" element={<PODetails />} />
+        <Route
+          path="purchase-orders/:id/upload-invoice"
+          element={<UploadInvoice />}
+        />
       </Route>
     </Routes>
   );
