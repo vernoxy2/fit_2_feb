@@ -98,8 +98,8 @@ export default function PurchaseOrders() {
         />
       </div>
       <div className="flex items-center justify-between">
-        <BtnPrimary onClick={() => navigate("/sales/work-orders/upload")}>
-          <FiUpload size={14} /> Upload Work Order
+        <BtnPrimary onClick={() => navigate("/sales/purchase-orders/upload")}>
+          <FiUpload size={14} /> Upload Purchase Order
         </BtnPrimary>
       </div>
       {/* Filters */}

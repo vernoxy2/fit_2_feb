@@ -58,7 +58,7 @@ export default function UploadPurchaseOrder() {
       <div className="w-full max-w-xl">
         {/* Back link */}
         <button
-          onClick={() => navigate("/sales/work-orders")}
+          onClick={() => navigate("/sales/purchase-orders")}
           className="flex items-center gap-1.5 text-slate-400 hover:text-indigo-600 transition-colors mb-4 text-xs font-semibold"
         >
           <FiArrowLeft size={13} /> Back to Work Orders
@@ -73,7 +73,7 @@ export default function UploadPurchaseOrder() {
             {/* Header */}
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-bold text-slate-800">Upload Work Order</p>
+                <p className="text-sm font-bold text-slate-800">Upload Purchase Order</p>
                 <p className="text-[11px] text-slate-400 mt-0.5">PDF, Excel or Image · Max 5MB</p>
               </div>
               <span className="text-[10px] font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">Optional</span>
@@ -159,7 +159,7 @@ export default function UploadPurchaseOrder() {
             {/* Buttons */}
             <div className="flex gap-2 pt-1 border-t border-slate-100">
               <button
-                onClick={() => navigate("/sales/work-orders")}
+                onClick={() => navigate("/sales/purchase-orders")}
                 className="flex-1 py-2 rounded-lg border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-slate-50 transition-all mt-3"
               >
                 Cancel
