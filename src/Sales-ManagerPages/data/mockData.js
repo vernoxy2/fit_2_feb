@@ -271,3 +271,50 @@ export const WO_STATUSES = {
   dispatched: { label: "Dispatched", color: "blue" },
   completed: { label: "Completed", color: "green" },
 };
+
+export const STOCK_LEDGER = [{
+    date: "2026-02-17",
+    sku: "Bearing 6205-ZZ",
+    type: "OUT",
+    qty: 10,
+    balance: 4,
+    ref: "WO-2024-0038",
+    by: "Rajesh M."
+  },
+  {
+    date: "2026-02-16",
+    sku: "Bearing 6205-ZZ",
+    type: "IN",
+    qty: 5,
+    balance: 14,
+    ref: "PO-2024-0122",
+    by: "System"
+  },
+  {
+    date: "2026-02-15",
+    sku: "Copper Wire 1.5mm",
+    type: "OUT",
+    qty: 20,
+    balance: 12,
+    ref: "WO-2024-0036",
+    by: "Priya N."
+  },
+  {
+    date: "2026-02-15",
+    sku: "Steel Bolt M12x50",
+    type: "IN",
+    qty: 100,
+    balance: 340,
+    ref: "PO-2024-0121",
+    by: "System"
+  },
+  {
+    date: "2026-02-14",
+    sku: "Industrial Filter FX-90",
+    type: "OUT",
+    qty: 8,
+    balance: 2,
+    ref: "WO-2024-0034",
+    by: "Rajesh M."
+  },
+];
