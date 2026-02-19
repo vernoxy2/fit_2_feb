@@ -6,12 +6,14 @@ import {
 import { StatusBadge, Card, CardHeader, Modal, SearchInput } from "../StoreComponent/ui/index";
 import { SKUS, STOCK_LEDGER } from "../data/mockData";
 
+const BUCKETS = ["All", ...new Set(SKUS.map(s => s.bucket))];
+
 export default function Stocks() {
-  const BUCKETS = ["All", ...new Set(SKUS.map(s => s.bucket))];
   const [search, setSearch]       = useState("");
   const [bucket, setBucket]       = useState("All");
   const [filterLow, setFilterLow] = useState(false);
   const [ledgerItem, setLedgerItem] = useState(null);
+
   const filtered = useMemo(() => {
     return SKUS.filter(s => {
       const matchSearch = s.name.toLowerCase().includes(search.toLowerCase());

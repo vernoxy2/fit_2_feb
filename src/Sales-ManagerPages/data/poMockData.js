@@ -71,16 +71,16 @@ export const PURCHASE_ORDERS = [
     mismatchFlag: true,
     acknowledgementRequired: true,
     items: [
-      {
-        sku: "Bearing 6205-ZZ",
-        description: "Deep groove ball bearing",
-        orderedQty: 100,
-        receivedQty: 85,
-        pendingQty: 15,
-        unit: "pcs",
-        unitPrice: 850,
-        totalPrice: 85000,
-      },
+      // {
+      //   sku: "Bearing 6205-ZZ",
+      //   description: "Deep groove ball bearing",
+      //   orderedQty: 100,
+      //   receivedQty: 85,
+      //   pendingQty: 15,
+      //   unit: "pcs",
+      //   unitPrice: 850,
+      //   totalPrice: 85000,
+      // },
     ],
     receiptHistory: [
       {
