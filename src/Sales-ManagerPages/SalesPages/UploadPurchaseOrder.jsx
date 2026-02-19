@@ -76,7 +76,7 @@ export default function UploadPurchaseOrder() {
                 <p className="text-sm font-bold text-slate-800">Upload Purchase Order</p>
                 <p className="text-[11px] text-slate-400 mt-0.5">PDF, Excel or Image · Max 5MB</p>
               </div>
-              <span className="text-[10px] font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">Optional</span>
+              {/* <span className="text-[10px] font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">Optional</span> */}
             </div>
 
             {/* Drop Zone */}

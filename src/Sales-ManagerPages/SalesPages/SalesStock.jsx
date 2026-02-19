@@ -7,11 +7,12 @@ import { StatusBadge, Card, CardHeader, Modal, SearchInput } from "../SalesCompo
 import { SKUS, STOCK_LEDGER } from "../data/mockData";
 
 export default function SalesStock() {
-const BUCKETS = ["All", ...new Set(SKUS.map(s => s.bucket))];
+  const BUCKETS = ["All", ...new Set(SKUS.map(s => s.bucket))];
   const [search, setSearch]       = useState("");
   const [bucket, setBucket]       = useState("All");
   const [filterLow, setFilterLow] = useState(false);
   const [ledgerItem, setLedgerItem] = useState(null);
+
   const filtered = useMemo(() => {
     return SKUS.filter(s => {
       const matchSearch = s.name.toLowerCase().includes(search.toLowerCase());

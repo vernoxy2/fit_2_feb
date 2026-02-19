@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FiSearch, FiX } from "react-icons/fi";
-import { PRODUCT_CATALOG, PRODUCT_CATEGORIES, searchProducts } from "../data/productCatalog";
+import { PRODUCT_CATALOG, PRODUCT_CATEGORIES } from "../data/productCatalog";
 
 export default function ProductCodeSelector({ onSelect, onClose }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,7 +23,6 @@ export default function ProductCodeSelector({ onSelect, onClose }) {
              p.description.toLowerCase().includes(q)
       );
     }
-    
     setFiltered(results);
   }, [searchQuery, selectedCategory]);
 

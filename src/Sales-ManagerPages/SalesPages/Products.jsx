@@ -30,9 +30,7 @@ export default function Products() {
       p.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchCategory && matchSearch;
   });
-
   const categoriesWithCounts = getCategoriesWithCounts();
-
   return (
     <div className="space-y-6">
       <div>
