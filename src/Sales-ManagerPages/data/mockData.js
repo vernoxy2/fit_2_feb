@@ -4,15 +4,15 @@
 
 export const SKUS = [
   // { id: 1, name: "Bearing 6205-ZZ", stock: 45, unit: "pcs", description: "Deep groove ball bearing" },
-  { id: 2, name: "Copper Wire 1.5mm", stock: 120, unit: "m", description: "Single core copper conductor" },
-  { id: 3, name: "Industrial Filter FX-90", stock: 8, unit: "pcs", description: "High efficiency filter" },
-  { id: 4, name: "Steel Bolt M12x50", stock: 340, unit: "pcs", description: "Hex head bolt with nut" },
-  { id: 5, name: "PVC Pipe 32mm", stock: 60, unit: "m", description: "Schedule 40 PVC pipe" },
-  { id: 6, name: "Hydraulic Oil 46", stock: 25, unit: "ltr", description: "ISO VG 46 hydraulic oil" },
-  { id: 7, name: "Circuit Breaker 32A", stock: 15, unit: "pcs", description: "MCB single pole" },
-  { id: 8, name: "Gasket Sheet 3mm", stock: 110, unit: "pcs", description: "Non-asbestos gasket sheet" },
-  { id: 9, name: "Allen Key Set 8pc", stock: 22, unit: "set", description: "Metric allen key set" },
-  { id: 10, name: "Safety Gloves L", stock: 5, unit: "pair", description: "Cut resistant safety gloves" },
+  // { id: 2, name: "Copper Wire 1.5mm", stock: 120, unit: "m", description: "Single core copper conductor" },
+  // { id: 3, name: "Industrial Filter FX-90", stock: 8, unit: "pcs", description: "High efficiency filter" },
+  // { id: 4, name: "Steel Bolt M12x50", stock: 340, unit: "pcs", description: "Hex head bolt with nut" },
+  // { id: 5, name: "PVC Pipe 32mm", stock: 60, unit: "m", description: "Schedule 40 PVC pipe" },
+  // { id: 6, name: "Hydraulic Oil 46", stock: 25, unit: "ltr", description: "ISO VG 46 hydraulic oil" },
+  // { id: 7, name: "Circuit Breaker 32A", stock: 15, unit: "pcs", description: "MCB single pole" },
+  // { id: 8, name: "Gasket Sheet 3mm", stock: 110, unit: "pcs", description: "Non-asbestos gasket sheet" },
+  // { id: 9, name: "Allen Key Set 8pc", stock: 22, unit: "set", description: "Metric allen key set" },
+  // { id: 10, name: "Safety Gloves L", stock: 5, unit: "pair", description: "Cut resistant safety gloves" },
 ];
 
 export const CUSTOMERS = [

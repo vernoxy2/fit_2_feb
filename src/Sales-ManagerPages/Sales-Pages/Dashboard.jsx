@@ -182,7 +182,7 @@ export default function SalesDashboard() {
       <Card>
         <CardHeader title="Quick Actions" />
         <div className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <button onClick={() => navigate('/sales/work-orders/upload')} className="p-4 border-2 border-dashed border-slate-200 rounded-lg hover:border-indigo-300 hover:bg-indigo-50 transition-all text-center">
+          <button onClick={() => navigate('/sales/ViewExcelSheetData')} className="p-4 border-2 border-dashed border-slate-200 rounded-lg hover:border-indigo-300 hover:bg-indigo-50 transition-all text-center">
             <FiPackage className="mx-auto mb-2 text-indigo-600" size={24} />
             <p className="text-xs font-bold text-slate-700">Upload Work Order</p>
           </button>
