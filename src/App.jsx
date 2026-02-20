@@ -27,6 +27,7 @@ import Stocks from "./Store-ManagerPages/StoreUserPages/Stocks";
 import Dispatch from "./Store-ManagerPages/StoreUserPages/Dispatch";
 import Challan from "./Store-ManagerPages/StoreUserPages/Challan";
 import Returns from "./Store-ManagerPages/StoreUserPages/Returns";
+import StoreProducts from "./Store-ManagerPages/StoreUserPages/StoreProducts";
 
 // ── SALES layout (NEW) ────────────────────────────────────────────
 import SalesLayout from "./Sales-ManagerPages/SalesComponent/layout/Layout";
@@ -112,6 +113,7 @@ function StoreShell() {
         <Route path="dispatch" element={<Dispatch />} />
         <Route path="challan" element={<Challan />} />
         <Route path="returns" element={<Returns />} />
+        <Route path="store-products" element={<StoreProducts />} />
       </Route>
     </Routes>
   );

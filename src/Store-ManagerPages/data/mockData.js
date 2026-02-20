@@ -535,3 +535,43 @@ export const DISPOSAL_METHODS = [
   "Donated",
   "Recycled",
 ];
+
+// ─────────────────────────────────────────────
+// PRODUCT CATALOG
+// ─────────────────────────────────────────────
+
+export const PRODUCT_CATEGORIES = [
+  "Pipes",
+  "Fittings",
+  "Valves",
+  "Electrical",
+  "Mechanical",
+  "Fasteners",
+  "Safety",
+  "Consumables",
+];
+
+export const PRODUCT_CATALOG = [
+  { code: "PCH-50-10", description: "PPCH-FR COMPOSITE PIPE PN10 50MM",   category: "Pipes",      unit: "m"   },
+  { code: "PCH-63-10", description: "PPCH-FR COMPOSITE PIPE PN10 63MM",   category: "Pipes",      unit: "m"   },
+  { code: "PCH-75-10", description: "PPCH-FR COMPOSITE PIPE PN10 75MM",   category: "Pipes",      unit: "m"   },
+  { code: "FIT-ELB-50", description: "ELBOW 90° PPCH 50MM",               category: "Fittings",   unit: "pcs" },
+  { code: "FIT-TEE-50", description: "TEE EQUAL PPCH 50MM",               category: "Fittings",   unit: "pcs" },
+  { code: "FIT-CPL-50", description: "COUPLING PPCH 50MM",                category: "Fittings",   unit: "pcs" },
+  { code: "VLV-GTE-50", description: "GATE VALVE 50MM PN16",              category: "Valves",     unit: "pcs" },
+  { code: "VLV-CHK-50", description: "CHECK VALVE 50MM",                  category: "Valves",     unit: "pcs" },
+  { code: "ELE-CB-32A", description: "CIRCUIT BREAKER 32A",               category: "Electrical", unit: "pcs" },
+  { code: "ELE-CW-15",  description: "COPPER WIRE 1.5MM",                 category: "Electrical", unit: "m"   },
+  { code: "MEC-BRG-62", description: "BEARING 6205-ZZ",                   category: "Mechanical", unit: "pcs" },
+  { code: "FST-BLT-M12","description": "STEEL BOLT M12x50",               category: "Fasteners",  unit: "pcs" },
+  { code: "SAF-GLV-L",  description: "SAFETY GLOVES LARGE",               category: "Safety",     unit: "pair"},
+  { code: "CON-FLT-90", description: "INDUSTRIAL FILTER FX-90",           category: "Consumables",unit: "pcs" },
+  { code: "CON-OIL-46", description: "HYDRAULIC OIL 46 (1 LTR)",         category: "Consumables",unit: "ltr" },
+];
+
+export function getCategoriesWithCounts() {
+  return PRODUCT_CATEGORIES.map(name => ({
+    name,
+    count: PRODUCT_CATALOG.filter(p => p.category === name).length,
+  }));
+}

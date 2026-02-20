@@ -21,6 +21,7 @@ export default function Header({ sidebarOpen, setSidebarOpen }) {
     "/store/dispatch": "Dispatch",
     "/store/challan": "Challan & Invoices",
     "store/returns":  "Returns & Adjustments",
+    "store/products": "Products Catalog",
   };
   const navigate = useNavigate();
   const handleLogout = async () => {
