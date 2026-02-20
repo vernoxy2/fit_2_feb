@@ -120,3 +120,57 @@ export function EmptyState({ message = "No records found" }) {
     </div>
   );
 }
+
+export function BtnPrimary({ children, onClick, className = "", disabled }) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
+    >
+      {children}
+    </button>
+  );
+}
+
+// ─────────────────────────────────────────────
+// INPUT
+// ─────────────────────────────────────────────
+export function Input({ label, placeholder, required, value, onChange, type = "text" }) {
+  return (
+    <div>
+      <label className="block text-xs font-bold text-slate-600 mb-1">
+        {label}{required && <span className="text-red-500 ml-0.5">*</span>}
+      </label>
+      <input
+        type={type}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+      />
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// SELECT
+// ─────────────────────────────────────────────
+export function Select({ label, options = [], required, value, onChange }) {
+  return (
+    <div>
+      <label className="block text-xs font-bold text-slate-600 mb-1">
+        {label}{required && <span className="text-red-500 ml-0.5">*</span>}
+      </label>
+      <select
+        value={value}
+        onChange={onChange}
+        className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all bg-white"
+      >
+        {options.map(o => (
+          <option key={o.value} value={o.value}>{o.label}</option>
+        ))}
+      </select>
+    </div>
+  );
+}

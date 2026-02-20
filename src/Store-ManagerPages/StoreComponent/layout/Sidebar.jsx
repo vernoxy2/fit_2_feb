@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 // import {
 //   FiHome, FiBox, FiTruck, FiFileText, FiChevronLeft, FiChevronRight,
 // } from "react-icons/fi";
-import { FiHome, FiBox, FiTruck, FiFileText, FiChevronLeft, FiChevronRight, FiRotateCcw } from "react-icons/fi"
+import { FiHome, FiBox, FiTruck, FiFileText, FiChevronLeft, FiChevronRight, FiRotateCcw, FiPackage } from "react-icons/fi"
 
 export default function Sidebar({ open, setOpen }) {
   const NAV_ITEMS = [
@@ -11,6 +11,7 @@ export default function Sidebar({ open, setOpen }) {
     { to: "/store/dispatch",  label: "Dispatch" , icon: FiTruck },
     { to: "/store/challan",   label: "Challan",   icon: FiFileText },
     { to: "/store/returns", label: "Returns",   icon: FiRotateCcw },
+    {to: "/store/store-products",   label: "Products",  icon: FiPackage  },
   ];
   return (
     <aside
