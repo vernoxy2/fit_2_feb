@@ -1,64 +1,22 @@
-import { FiUpload, FiX, FiFile } from "react-icons/fi";
+import React from "react";
 
-// ═══════════════════════════════════════════════════════════
-// STATUS BADGE
-// ═══════════════════════════════════════════════════════════
-export function StatusBadge({ status }) {
-  const map = {
-    draft:             { bg: "bg-slate-100",   text: "text-slate-600",   label: "Draft" },
-    pending_approval:  { bg: "bg-amber-50",    text: "text-amber-700",   label: "Pending Approval", border: "border-amber-200" },
-    approved:          { bg: "bg-emerald-50",  text: "text-emerald-700", label: "Approved", border: "border-emerald-200" },
-    rejected:          { bg: "bg-red-50",      text: "text-red-700",     label: "Rejected", border: "border-red-200" },
-    dispatched:        { bg: "bg-blue-50",     text: "text-blue-700",    label: "Dispatched", border: "border-blue-200" },
-    completed:         { bg: "bg-green-50",    text: "text-green-700",   label: "Completed", border: "border-green-200" },
-    normal:            { bg: "bg-slate-100",   text: "text-slate-600",   label: "Normal" },
-    high:              { bg: "bg-orange-50",   text: "text-orange-700",  label: "High", border: "border-orange-200" },
-    urgent:            { bg: "bg-red-50",      text: "text-red-700",     label: "Urgent", border: "border-red-200" },
-    manual:            { bg: "bg-indigo-50",   text: "text-indigo-700",  label: "Manual", border: "border-indigo-200" },
-    uploaded:          { bg: "bg-purple-50",   text: "text-purple-700",  label: "Uploaded", border: "border-purple-200" },
-  };
-  const s = map[status] || map.draft;
-  return (
-    <span className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide ${s.bg} ${s.text} ${s.border ? `border ${s.border}` : ""}`}>
-      {s.label}
-    </span>
-  );
-}
+// All reusable UI components for Sales Module
+export const Card = ({ children, className = "" }) => (
+  <div className={`bg-white rounded-xl shadow-sm border border-slate-200 ${className}`}>
+    {children}
+  </div>
+);
 
-// ═══════════════════════════════════════════════════════════
-// FORM SECTION
-// ═══════════════════════════════════════════════════════════
-export function FormSection({ title, children }) {
-  return (
-    <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-      <h3 className="text-sm font-bold text-slate-800 mb-4 pb-3 border-b border-slate-100">{title}</h3>
-      <div className="space-y-4">{children}</div>
+export const CardHeader = ({ title, subtitle, action }) => (
+  <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+    <div>
+      <h3 className="text-sm font-bold text-slate-800">{title}</h3>
+      {subtitle && <p className="text-xs text-slate-400 mt-0.5">{subtitle}</p>}
     </div>
-  );
-}
+    {action && <div>{action}</div>}
+  </div>
+);
 
-// ═══════════════════════════════════════════════════════════
-// CARD
-// ═══════════════════════════════════════════════════════════
-export function Card({ children, className = "" }) {
-  return <div className={`bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden ${className}`}>{children}</div>;
-}
-
-export function CardHeader({ title, subtitle, right }) {
-  return (
-    <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
-      <div>
-        <p className="text-sm font-bold text-slate-700">{title}</p>
-        {subtitle && <p className="text-[11px] text-slate-400 mt-0.5">{subtitle}</p>}
-      </div>
-      {right}
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────
-// SEARCH INPUT
-// ─────────────────────────────────────────────
 export function SearchInput({ placeholder, value, onChange, icon: Icon }) {
   return (
     <div className="relative">
@@ -72,192 +30,165 @@ export function SearchInput({ placeholder, value, onChange, icon: Icon }) {
     </div>
   );
 }
-// ═══════════════════════════════════════════════════════════
-// INPUT
-// ═══════════════════════════════════════════════════════════
-export function Input({ label, type = "text", value, onChange, placeholder, required, disabled, readOnly, className = "" }) {
-  return (
-    <div>
-      {label && (
-        <label className="block text-xs font-bold text-slate-600 mb-1.5">
-          {label}
-          {required && <span className="text-red-500 ml-0.5">*</span>}
-        </label>
-      )}
-      <input
-        type={type}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        disabled={disabled}
-        readOnly={readOnly}
-        className={`w-full border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all ${disabled || readOnly ? "bg-slate-50" : ""} ${className}`}
-      />
-    </div>
-  );
-}
 
-// ═══════════════════════════════════════════════════════════
-// SELECT
-// ═══════════════════════════════════════════════════════════
-export function Select({ label, value, onChange, options, required, disabled }) {
+export const KPICard = ({ label, value, icon: Icon, color = "indigo", trend, onClick }) => {
+  const colors = {
+    indigo: "bg-indigo-600", emerald: "bg-emerald-500", amber: "bg-amber-500",
+    red: "bg-red-500", blue: "bg-blue-500", purple: "bg-purple-500"
+  };
   return (
-    <div>
-      {label && (
-        <label className="block text-xs font-bold text-slate-600 mb-1.5">
-          {label}
-          {required && <span className="text-red-500 ml-0.5">*</span>}
-        </label>
-      )}
-      <select
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-        className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all bg-white"
-      >
-        {options.map(opt => (
-          <option key={opt.value ?? opt} value={opt.value ?? opt}>
-            {opt.label ?? opt}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════
-// TEXTAREA
-// ═══════════════════════════════════════════════════════════
-export function Textarea({ label, value, onChange, placeholder, rows = 3, required }) {
-  return (
-    <div>
-      {label && (
-        <label className="block text-xs font-bold text-slate-600 mb-1.5">
-          {label}
-          {required && <span className="text-red-500 ml-0.5">*</span>}
-        </label>
-      )}
-      <textarea
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        rows={rows}
-        className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-      />
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════
-// TOGGLE
-// ═══════════════════════════════════════════════════════════
-export function Toggle({ label, checked, onChange }) {
-  return (
-    <div className="flex items-center gap-3">
-      {label && <span className="text-xs font-bold text-slate-600">{label}</span>}
-      <button
-        onClick={() => onChange(!checked)}
-        className={`relative inline-flex w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none ${checked ? "bg-indigo-600" : "bg-slate-200"}`}
-      >
-        <span className={`inline-block w-5 h-5 bg-white rounded-full shadow transition-transform duration-200 mt-0.5 ${checked ? "translate-x-5" : "translate-x-0.5"}`} />
-      </button>
-      {checked && <span className="text-xs font-semibold text-indigo-600">YES</span>}
-      {!checked && <span className="text-xs font-semibold text-slate-400">NO</span>}
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════
-// FILE UPLOAD
-// ═══════════════════════════════════════════════════════════
-export function FileUpload({ label, file, onChange, onRemove }) {
-  return (
-    <div>
-      {label && <label className="block text-xs font-bold text-slate-600 mb-1.5">{label}</label>}
-      {!file ? (
-        <label className="flex flex-col items-center justify-center border-2 border-dashed border-slate-300 rounded-lg p-4 hover:border-indigo-400 hover:bg-indigo-50/30 transition-all cursor-pointer">
-          <FiUpload size={24} className="text-slate-400 mb-2" />
-          <span className="text-xs text-slate-500 font-medium">Click to upload file</span>
-          <span className="text-[10px] text-slate-400 mt-0.5">PDF, Excel, or Image (Max 5MB)</span>
-          <input
-            type="file"
-            className="hidden"
-            accept=".pdf,.xlsx,.xls,.jpg,.jpeg,.png"
-            onChange={onChange}
-          />
-        </label>
-      ) : (
-        <div className="flex items-center justify-between border border-slate-200 rounded-lg p-3 bg-slate-50">
-          <div className="flex items-center gap-2">
-            <FiFile size={16} className="text-indigo-600" />
-            <span className="text-xs font-semibold text-slate-700">{file.name}</span>
-            <span className="text-[10px] text-slate-400">({(file.size / 1024).toFixed(1)} KB)</span>
-          </div>
-          <button
-            onClick={onRemove}
-            className="p-1 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
-          >
-            <FiX size={14} />
-          </button>
+    <Card className={`p-5 hover:shadow-md transition-all ${onClick ? 'cursor-pointer' : ''}`} onClick={onClick}>
+      <div className="flex items-start gap-4">
+        <div className={`w-12 h-12 rounded-xl ${colors[color]} flex items-center justify-center flex-shrink-0`}>
+          <Icon className="text-white" size={20} />
         </div>
-      )}
-    </div>
+        <div className="flex-1">
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{label}</p>
+          <div className="flex items-baseline gap-2 mt-1">
+            <p className="text-2xl font-black text-slate-800">{value}</p>
+            {trend && <span className={`text-xs font-semibold ${trend > 0 ? 'text-emerald-600' : 'text-red-600'}`}>{trend > 0 ? '↑' : '↓'} {Math.abs(trend)}%</span>}
+          </div>
+        </div>
+      </div>
+    </Card>
   );
-}
+};
 
-// ═══════════════════════════════════════════════════════════
-// MODAL
-// ═══════════════════════════════════════════════════════════
-export function Modal({ title, onClose, children, size = "md" }) {
-  const sizes = { sm: "max-w-sm", md: "max-w-lg", lg: "max-w-2xl", xl: "max-w-4xl", "2xl": "max-w-6xl" };
+export const StatusBadge = ({ status, label }) => {
+  const styles = {
+    material_hold: "bg-blue-50 text-blue-700 border-blue-200",
+    ready: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    dispatched: "bg-slate-50 text-slate-700 border-slate-200",
+    pending: "bg-amber-50 text-amber-700 border-amber-200",
+    overdue: "bg-red-50 text-red-700 border-red-200",
+    warning: "bg-orange-50 text-orange-700 border-orange-200",
+    paid: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    unpaid: "bg-red-50 text-red-700 border-red-200",
+    in_transit: "bg-blue-50 text-blue-700 border-blue-200",
+    delivered: "bg-emerald-50 text-emerald-700 border-emerald-200",
+  };
+  return <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase border ${styles[status] || styles.pending}`}>{label || status.replace('_', ' ')}</span>;
+};
+
+export const BtnPrimary = ({ children, onClick, disabled, className = "" }) => (
+  <button onClick={onClick} disabled={disabled} className={`px-4 py-2 bg-indigo-600 text-white text-xs font-bold rounded-lg hover:bg-indigo-700 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colors flex items-center gap-2 ${className}`}>{children}</button>
+);
+
+export const BtnSecondary = ({ children, onClick, className = "" }) => (
+  <button onClick={onClick} className={`px-4 py-2 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg hover:bg-slate-200 transition-colors flex items-center gap-2 ${className}`}>{children}</button>
+);
+
+export const BtnDanger = ({ children, onClick, className = "" }) => (
+  <button onClick={onClick} className={`px-3 py-1.5 bg-red-50 text-red-600 text-xs font-bold rounded-lg hover:bg-red-100 border border-red-200 transition-colors flex items-center gap-1.5 ${className}`}>{children}</button>
+);
+
+export const Input = ({ label, value, onChange, placeholder, type = "text", required, className = "" }) => (
+  <div className={className}>
+    {label && <label className="block text-xs font-bold text-slate-700 mb-1.5">{label} {required && <span className="text-red-500">*</span>}</label>}
+    <input type={type} value={value} onChange={onChange} placeholder={placeholder} className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" required={required} />
+  </div>
+);
+
+export const Select = ({ label, value, onChange, options, required, className = "" }) => (
+  <div className={className}>
+    {label && <label className="block text-xs font-bold text-slate-700 mb-1.5">{label} {required && <span className="text-red-500">*</span>}</label>}
+    <select value={value} onChange={onChange} className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" required={required}>
+      {options.map((opt, idx) => <option key={idx} value={opt.value}>{opt.label}</option>)}
+    </select>
+  </div>
+);
+
+export const Textarea = ({ label, value, onChange, placeholder, rows = 3, className = "" }) => (
+  <div className={className}>
+    {label && <label className="block text-xs font-bold text-slate-700 mb-1.5">{label}</label>}
+    <textarea value={value} onChange={onChange} placeholder={placeholder} rows={rows} className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+  </div>
+);
+
+export const Modal = ({ title, children, onClose, size = "md" }) => {
+  const sizes = { sm: "max-w-md", md: "max-w-2xl", lg: "max-w-4xl", xl: "max-w-6xl" };
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-      <div className={`bg-white rounded-2xl shadow-2xl w-full ${sizes[size]} overflow-hidden flex flex-col max-h-[90vh]`}>
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 flex-shrink-0">
+      <div className={`bg-white rounded-2xl shadow-2xl w-full ${sizes[size]} max-h-[90vh] overflow-hidden flex flex-col`}>
+        <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between flex-shrink-0">
           <h3 className="text-sm font-bold text-slate-800">{title}</h3>
-          <button onClick={onClose} className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors">
-            <FiX size={16} />
-          </button>
+          <button onClick={onClose} className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors">✕</button>
         </div>
-        <div className="overflow-y-auto flex-1 px-6 py-5">{children}</div>
+        <div className="flex-1 overflow-y-auto p-6">{children}</div>
       </div>
     </div>
   );
-}
+};
 
-// ═══════════════════════════════════════════════════════════
-// BUTTONS
-// ═══════════════════════════════════════════════════════════
-export function BtnPrimary({ children, onClick, className = "", disabled }) {
+export const Alert = ({ type = "info", children, onClose }) => {
+  const styles = {
+    info: "bg-blue-50 border-blue-200 text-blue-700",
+    success: "bg-emerald-50 border-emerald-200 text-emerald-700",
+    warning: "bg-amber-50 border-amber-200 text-amber-700",
+    error: "bg-red-50 border-red-200 text-red-700"
+  };
   return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      className={`flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
-    >
-      {children}
-    </button>
+    <div className={`p-4 rounded-lg border ${styles[type]} flex items-start justify-between gap-3`}>
+      <div className="flex-1 text-sm">{children}</div>
+      {onClose && <button onClick={onClose} className="text-current opacity-50 hover:opacity-100">✕</button>}
+    </div>
   );
-}
+};
 
-export function BtnSecondary({ children, onClick, className = "" }) {
-  return (
-    <button
-      onClick={onClick}
-      className={`flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-4 py-2 rounded-lg transition-colors ${className}`}
-    >
-      {children}
-    </button>
-  );
-}
+export const Table = ({ headers, children, className = "" }) => (
+  <div className="overflow-x-auto">
+    <table className={`w-full text-sm ${className}`}>
+      <thead>
+        <tr className="bg-slate-50 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+          {headers.map((header, idx) => <th key={idx} className={`px-5 py-3 text-${header.align || 'left'}`}>{header.label}</th>)}
+        </tr>
+      </thead>
+      <tbody className="divide-y divide-slate-50">{children}</tbody>
+    </table>
+  </div>
+);
 
-export function BtnDanger({ children, onClick, className = "" }) {
+export const FileUpload = ({ label, accept, onChange, file, className = "" }) => (
+  <div className={className}>
+    {label && <label className="block text-xs font-bold text-slate-700 mb-1.5">{label}</label>}
+    <div className="border-2 border-dashed border-slate-200 rounded-lg p-6 text-center hover:border-indigo-300 transition-colors">
+      <input type="file" accept={accept} onChange={onChange} className="hidden" id="file-upload" />
+      <label htmlFor="file-upload" className="cursor-pointer">
+        {file ? (
+          <div><p className="text-sm font-semibold text-emerald-600">✓ {file.name}</p><p className="text-xs text-slate-400 mt-1">Click to change</p></div>
+        ) : (
+          <div><p className="text-sm font-semibold text-slate-600">📁 Click to upload</p><p className="text-xs text-slate-400 mt-1">{accept || 'Any file'}</p></div>
+        )}
+      </label>
+    </div>
+  </div>
+);
+
+export const EmptyState = ({ icon: Icon, title, description, action }) => (
+  <div className="text-center py-12">
+    {Icon && <Icon size={48} className="mx-auto mb-3 text-slate-300" />}
+    <p className="text-sm font-bold text-slate-600">{title}</p>
+    {description && <p className="text-xs text-slate-400 mt-1">{description}</p>}
+    {action && <div className="mt-4">{action}</div>}
+  </div>
+);
+
+export const NotificationBadge = ({ type, title, message, time, onClick }) => {
+  const types = {
+    success: "bg-emerald-50 border-emerald-200",
+    warning: "bg-amber-50 border-amber-200",
+    error: "bg-red-50 border-red-200",
+    info: "bg-blue-50 border-blue-200"
+  };
   return (
-    <button
-      onClick={onClick}
-      className={`flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors ${className}`}
-    >
-      {children}
-    </button>
+    <div onClick={onClick} className={`p-4 rounded-lg border ${types[type]} hover:shadow-md transition-all cursor-pointer`}>
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex-1">
+          <p className="text-sm font-bold text-slate-800">{title}</p>
+          <p className="text-xs text-slate-600 mt-1">{message}</p>
+          <p className="text-xs text-slate-400 mt-2">{time}</p>
+        </div>
+      </div>
+    </div>
   );
-}
+};
