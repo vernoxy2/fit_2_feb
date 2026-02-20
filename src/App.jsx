@@ -53,6 +53,8 @@ import UploadWorkOrder from "./Sales-ManagerPages/Sales-Pages/UploadWorkOrder";
 import UploadPurchaseOrder from "./Sales-ManagerPages/Sales-Pages/UploadPurchaseOrder";
 import Products from "./Sales-ManagerPages/Sales-Pages/Products";
 import SalesStock from "./Sales-ManagerPages/Sales-Pages/SalesStock";
+import ViewExcelSheetData from "./Sales-ManagerPages/Sales-Pages/ViewExcelSheetData";
+import ViewPOExcelSheetData from "./Sales-ManagerPages/Sales-Pages/ViewPOExcelSheetData";
 
 // ── Admin sidebar nav mapping ─────────────────────────────────────────────────
 const ADMIN_ROUTES = {
@@ -133,24 +135,6 @@ function StoreShell() {
 function SalesShell() {
   return (
     // <Routes>
-    //   <Route element={<SalesLayout />}>
-    //     <Route index element={<Navigate to="dashboard" replace />} />
-    //     <Route path="dashboard" element={<SalesDashboard />} />
-    //     <Route path="work-orders" element={<WorkOrders />} />
-    //     <Route path="work-orders/create" element={<CreateWorkOrder />} />
-    //     <Route path="work-orders/upload" element={<UploadWorkOrder />} />
-    //     <Route path="purchase-orders/upload" element={<UploadPurchaseOrder />} />
-    //     <Route path="work-orders/:id" element={<WorkOrderDetails />} />
-    //     <Route path="purchase-orders" element={<PurchaseOrders />} />
-    //     <Route path="purchase-orders/:id" element={<PODetails />} />
-    //     <Route path="products" element={<Products />} />
-    //     <Route
-    //       path="purchase-orders/:id/upload-invoice"
-    //       element={<UploadInvoice />}
-    //     />
-    //   </Route>
-    // </Routes>
-    // <Routes>
     //   {/* Root redirect */}
     //   <Route path="/" element={<Navigate to="/sales/dashboard" replace />} />
     //   {/* Sales Module Routes */}
@@ -205,6 +189,9 @@ function SalesShell() {
         <Route path="purchase-orders/upload-invoice" element={<UploadVendorInvoice />} />
         <Route path="purchase-orders/upload" element={<UploadPurchaseOrder />} />
         <Route path="products" element={<Products />} />
+        <Route path="viewExcelSheet" element={<ViewExcelSheetData />} />
+        
+<Route path= "viewPodata" element={<ViewPOExcelSheetData />} />
         <Route path="*" element={<Navigate to="dashboard" replace />} />
       </Route>
     </Routes>
