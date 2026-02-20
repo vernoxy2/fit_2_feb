@@ -17,6 +17,7 @@ export default function Header() {
       "/sales/purchase-orders": "Purchase Orders",
       "/sales/purchase-orders/create": "Create Purchase Order",
       "/sales/purchase-orders/upload-invoice": "Upload Vendor Invoice",
+      "/sales/ViewExcelSheetData": "View Excel Sheet Data",
     };
     return titles[location.pathname] || "Sales Module";
   };
