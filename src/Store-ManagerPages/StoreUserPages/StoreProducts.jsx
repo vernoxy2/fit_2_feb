@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiSearch, FiPlus, FiPackage, FiEdit, FiTrash2 } from "react-icons/fi";
-import { Card, CardHeader, StatusBadge, BtnPrimary, Select, Input, Modal } from "../SalesComponent/ui/index";
-import { PRODUCT_CATALOG, PRODUCT_CATEGORIES, searchProducts, getCategoriesWithCounts } from "../data/productCatalog";
+import { Card, CardHeader, StatusBadge, BtnPrimary, Select, Input, Modal } from "../StoreComponent/ui/index";
+import { PRODUCT_CATALOG, PRODUCT_CATEGORIES, getCategoriesWithCounts } from "../data/mockData";
 
 function KPICard({ label, value, icon: Icon, color }) {
   const colors = { indigo: "bg-indigo-600", emerald: "bg-emerald-500", amber: "bg-amber-500" };
@@ -18,7 +18,7 @@ function KPICard({ label, value, icon: Icon, color }) {
   );
 }
 
-export default function Products() {
+export default function StoreProducts() {
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [addModal, setAddModal] = useState(false);
@@ -31,7 +31,6 @@ export default function Products() {
     return matchCategory && matchSearch;
   });
   const categoriesWithCounts = getCategoriesWithCounts();
-
   return (
     <div className="space-y-6">
       <div>
