@@ -1,76 +1,65 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { FiHome, FiFileText, FiPackage, FiShoppingCart, FiChevronLeft, FiChevronRight, FiBox } from "react-icons/fi";
+import { FiHome, FiPackage, FiTruck, FiFileText, FiShoppingCart, FiUpload, FiDollarSign } from "react-icons/fi";
 
-const NAV_ITEMS = [
-  { to: "/sales/dashboard",        label: "Dashboard",       icon: FiHome },
-  { to: "/sales/work-orders",      label: "Work Orders",     icon: FiFileText },
-  { to: "/sales/purchase-orders",  label: "Purchase Orders", icon: FiShoppingCart },
-  { to: "/sales/products",         label: "Products",        icon: FiPackage },
-  {to: "/sales/sales-stock",       label: "Stock",     icon: FiBox  },
-];
+export default function Sidebar() {
+  const navItems = [
+    { to: "/sales/dashboard", icon: FiHome, label: "Dashboard" },
+    { to: "/sales/work-orders", icon: FiPackage, label: "Work Orders" },
+    { to: "/sales/work-orders/upload", icon: FiUpload, label: "Upload WO Excel" },
+    { to: "/sales/challans", icon: FiTruck, label: "Challans" },
+    { to: "/sales/challans/create", icon: FiTruck, label: "Create Challan" },
+    { to: "/sales/invoices", icon: FiFileText, label: "Customer Invoices" },
+    { to: "/sales/invoices/upload", icon: FiUpload, label: "Upload Invoice" },
+    { to: "/sales/purchase-orders", icon: FiShoppingCart, label: "Purchase Orders" },
+    { to: "/sales/purchase-orders/create", icon: FiShoppingCart, label: "Create PO" },
+    { to: "/sales/purchase-orders/upload-invoice", icon: FiDollarSign, label: "Vendor Invoice" },
+    { to: "/sales/products", icon: FiFileText, label: "Products" },
+    { to: "/sales/sales-stock", icon: FiFileText, label: "Sales Stock" },
 
-export default function SalesSidebar({ open, setOpen }) {
+  ];
+
   return (
-    <aside
-      className="fixed top-0 left-0 h-full bg-slate-900 flex flex-col z-30 transition-all duration-300 overflow-hidden"
-      style={{ width: open ? 220 : 60 }}
-    >
+    <aside className="w-64 bg-white border-r border-slate-200 flex flex-col">
       {/* Logo */}
-      <div className={`flex items-center h-16 px-4 border-b border-white/5 flex-shrink-0 ${open ? "gap-3" : "justify-center"}`}>
-        <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center flex-shrink-0">
-          <FiFileText className="text-white" size={16} />
+      <div className="h-16 border-b border-slate-200 flex items-center px-5">
+        <div>
+          <h1 className="text-lg font-black text-indigo-600">ERP System</h1>
+          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Sales Module</p>
         </div>
-        {open && (
-          <div>
-            <p className="text-white text-sm font-bold whitespace-nowrap leading-tight">Sales User</p>
-            <p className="text-slate-500 text-[10px] whitespace-nowrap">ERP Suite</p>
-          </div>
-        )}
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 py-4 overflow-hidden">
-        {open && (
-          <p className="px-4 text-slate-600 text-[9px] font-bold uppercase tracking-widest mb-2">
-            Navigation
-          </p>
-        )}
-        {NAV_ITEMS.map(({ to, label, icon: Icon }) => (
-          <div key={to} className="relative group">
-            <NavLink
-              to={to}
-              end={to === "/sales/dashboard"}
-              className={({ isActive }) =>
-                `flex items-center h-10 transition-all gap-3
-                ${open ? "px-4" : "justify-center px-0"}
-                ${isActive
-                  ? "bg-indigo-600/20 text-indigo-400 border-r-2 border-indigo-500"
-                  : "text-slate-400 hover:bg-white/5 hover:text-white"
-                }`
-              }
-            >
-              <Icon size={18} className="flex-shrink-0" />
-              {open && <span className="text-sm font-medium whitespace-nowrap">{label}</span>}
-            </NavLink>
-            {/* Tooltip when collapsed */}
-            {!open && (
-              <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2 bg-slate-700 text-white text-xs font-medium rounded-md px-2.5 py-1.5 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap z-50 shadow-lg">
-                {label}
-              </div>
-            )}
-          </div>
+      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+        {navItems.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) =>
+              `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all text-sm ${
+                isActive
+                  ? 'bg-indigo-50 text-indigo-600 font-bold'
+                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-800'
+              }`
+            }
+          >
+            <item.icon size={18} />
+            <span>{item.label}</span>
+          </NavLink>
         ))}
       </nav>
 
-      {/* Collapse toggle */}
-      <div className={`border-t border-white/5 p-3 flex-shrink-0 ${open ? "flex justify-end" : "flex justify-center"}`}>
-        <button
-          onClick={() => setOpen(!open)}
-          className="p-1.5 rounded-lg text-slate-500 hover:text-white hover:bg-white/10 transition-colors"
-          title={open ? "Collapse sidebar" : "Expand sidebar"}
-        >
-          {open ? <FiChevronLeft size={16} /> : <FiChevronRight size={16} />}
-        </button>
+      {/* User Info */}
+      <div className="p-4 border-t border-slate-200">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
+            <span className="text-sm font-bold text-indigo-600">SP</span>
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-bold text-slate-800 truncate">Sales Person</p>
+            <p className="text-xs text-slate-400 truncate">sales@company.com</p>
+          </div>
+        </div>
       </div>
     </aside>
   );

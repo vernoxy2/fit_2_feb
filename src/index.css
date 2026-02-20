@@ -5,12 +5,16 @@
 @tailwind utilities;
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #080d1a;
@@ -18,20 +22,47 @@ body {
 
 /* ── Animations ───────────────────────────────────────────────── */
 @keyframes gp1 {
-  0%, 100% { opacity: .5; transform: scale(1); }
-  50%       { opacity: .9; transform: scale(1.1); }
+
+  0%,
+  100% {
+    opacity: .5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .9;
+    transform: scale(1.1);
+  }
 }
+
 @keyframes gp2 {
-  0%, 100% { opacity: .4; transform: scale(1); }
-  50%       { opacity: .7; transform: scale(1.08); }
+
+  0%,
+  100% {
+    opacity: .4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .7;
+    transform: scale(1.08);
+  }
 }
+
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ── Glow blobs ───────────────────────────────────────────────── */
-.f2f-glow-1 { animation: gp1 9s ease-in-out infinite; }
-.f2f-glow-2 { animation: gp2 12s ease-in-out infinite; }
+.f2f-glow-1 {
+  animation: gp1 9s ease-in-out infinite;
+}
+
+.f2f-glow-2 {
+  animation: gp2 12s ease-in-out infinite;
+}
 
 /* ── Input ────────────────────────────────────────────────────── */
 .f2f-input {
@@ -44,11 +75,13 @@ body {
   font-family: 'DM Sans', sans-serif;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
+
 .f2f-input:focus {
   outline: none;
   border-color: #fb923c;
-   box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.1);
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.1);
 }
+
 .f2f-input::placeholder {
   color: #2d3f55;
 }
@@ -65,7 +98,7 @@ body {
 /* ── Submit / Action Button ───────────────────────────────────── */
 .f2f-btn {
   padding: 12px;
-   background: linear-gradient(135deg, #fb923c, #f97316);
+  background: linear-gradient(135deg, #fb923c, #f97316);
   border: none;
   border-radius: 10px;
   font-family: 'DM Sans', sans-serif;
@@ -79,10 +112,12 @@ body {
   justify-content: center;
   box-shadow: 0 4px 20px rgba(251, 146, 60, 0.25);
 }
+
 .f2f-btn:hover:not(:disabled) {
   filter: brightness(1.08);
   transform: translateY(-1px);
 }
+
 .f2f-btn:active {
   transform: translateY(0);
 }
