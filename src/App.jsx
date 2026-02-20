@@ -30,19 +30,29 @@ import Returns from "./Store-ManagerPages/StoreUserPages/Returns";
 import StoreProducts from "./Store-ManagerPages/StoreUserPages/StoreProducts";
 
 // ── SALES layout (NEW) ────────────────────────────────────────────
+// import SalesLayout from "./Sales-ManagerPages/SalesComponent/layout/Layout";
+// import SalesDashboard from "./Sales-ManagerPages/SalesPages/Dashboard";
+// import WorkOrders from "./Sales-ManagerPages/SalesPages/WorkOrders";
+// import CreateWorkOrder from "./Sales-ManagerPages/SalesPages/CreateWorkOrder";
+// import WorkOrderDetails from "./Sales-ManagerPages/SalesPages/WorkOrderDetails";
+// import TechnicalApproval from "./Sales-ManagerPages/SalesPages/TechnicalApproval";
+// import PurchaseOrders from "./Sales-ManagerPages/SalesPages/PurchaseOrders";
+// import PODetails from "./Sales-ManagerPages/SalesPages/PODetails";
+// import UploadInvoice from "./Sales-ManagerPages/SalesPages/UploadInvoice";
+// import UploadWorkOrder from "./Sales-ManagerPages/SalesPages/UploadWorkOrder";
+// import UploadPurchaseOrder from "./Sales-ManagerPages/SalesPages/UploadPurchaseOrder";
+// import Products from "./Sales-ManagerPages/SalesPages/Products";
+import Dashboard from "./Sales-ManagerPages/Sales-Pages/Dashboard";
+import CreateChallan from "./Sales-ManagerPages/Sales-Pages/CreateChallan";
+import UploadCustomerInvoice from "./Sales-ManagerPages/Sales-Pages/UploadCustomerInvoice";
+import CreatePurchaseOrder from "./Sales-ManagerPages/Sales-Pages/CreatePurchaseOrder";
+import UploadVendorInvoice from "./Sales-ManagerPages/Sales-Pages/UploadVendorInvoice";
+import PurchaseOrderList from "./Sales-ManagerPages/Sales-Pages/PurchaseOrderList";
 import SalesLayout from "./Sales-ManagerPages/SalesComponent/layout/Layout";
-import SalesDashboard from "./Sales-ManagerPages/SalesPages/Dashboard";
-import WorkOrders from "./Sales-ManagerPages/SalesPages/WorkOrders";
-import CreateWorkOrder from "./Sales-ManagerPages/SalesPages/CreateWorkOrder";
-import WorkOrderDetails from "./Sales-ManagerPages/SalesPages/WorkOrderDetails";
-import TechnicalApproval from "./Sales-ManagerPages/SalesPages/TechnicalApproval";
-import PurchaseOrders from "./Sales-ManagerPages/SalesPages/PurchaseOrders";
-import PODetails from "./Sales-ManagerPages/SalesPages/PODetails";
-import UploadInvoice from "./Sales-ManagerPages/SalesPages/UploadInvoice";
-import SalesStock from "./Sales-ManagerPages/SalesPages/SalesStock";
-import UploadWorkOrder from "./Sales-ManagerPages/SalesPages/UploadWorkOrder";
-import UploadPurchaseOrder from "./Sales-ManagerPages/SalesPages/UploadPurchaseOrder";
-import Products from "./Sales-ManagerPages/SalesPages/Products";
+import UploadWorkOrder from "./Sales-ManagerPages/Sales-Pages/UploadWorkOrder";
+import UploadPurchaseOrder from "./Sales-ManagerPages/Sales-Pages/UploadPurchaseOrder";
+import Products from "./Sales-ManagerPages/Sales-Pages/Products";
+import SalesStock from "./Sales-ManagerPages/Sales-Pages/SalesStock";
 
 // ── Admin sidebar nav mapping ─────────────────────────────────────────────────
 const ADMIN_ROUTES = {
@@ -122,25 +132,83 @@ function StoreShell() {
 // SALES PANEL (NEW) →  localhost:5173/sales
 function SalesShell() {
   return (
+    // <Routes>
+    //   <Route element={<SalesLayout />}>
+    //     <Route index element={<Navigate to="dashboard" replace />} />
+    //     <Route path="dashboard" element={<SalesDashboard />} />
+    //     <Route path="work-orders" element={<WorkOrders />} />
+    //     <Route path="work-orders/create" element={<CreateWorkOrder />} />
+    //     <Route path="work-orders/upload" element={<UploadWorkOrder />} />
+    //     <Route path="purchase-orders/upload" element={<UploadPurchaseOrder />} />
+    //     <Route path="work-orders/:id" element={<WorkOrderDetails />} />
+    //     <Route path="purchase-orders" element={<PurchaseOrders />} />
+    //     <Route path="purchase-orders/:id" element={<PODetails />} />
+    //     <Route path="products" element={<Products />} />
+    //     <Route
+    //       path="purchase-orders/:id/upload-invoice"
+    //       element={<UploadInvoice />}
+    //     />
+    //   </Route>
+    // </Routes>
+    // <Routes>
+    //   {/* Root redirect */}
+    //   <Route path="/" element={<Navigate to="/sales/dashboard" replace />} />
+    //   {/* Sales Module Routes */}
+    //   <Route path="/sales" element={<SalesLayout />}>
+    //     <Route index element={<Navigate to="dashboard" replace />} />
+    //     <Route path="dashboard" element={<Dashboard />} />
+    //     {/* Work Orders */}
+    //     <Route path="work-orders" element={<Dashboard />} />
+    //     <Route path="work-orders/upload" element={<UploadWorkOrder />} />
+    //     {/* Challans */}
+    //     <Route path="challans" element={<Dashboard />} />
+    //     <Route path="challans/create" element={<CreateChallan />} />
+    //     {/* Customer Invoices */}
+    //     <Route path="invoices" element={<Dashboard />} />
+    //     <Route path="invoices/upload" element={<UploadCustomerInvoice />} />
+    //     {/* Purchase Orders */}
+    //     <Route path="sales-stock" element={<SalesStock />} />
+    //     <Route path="purchase-orders" element={<PurchaseOrderList />} />
+    //     <Route
+    //       path="purchase-orders/create"
+    //       element={<CreatePurchaseOrder />}
+    //     />
+    //     <Route
+    //       path="purchase-orders/upload-invoice"
+    //       element={<UploadVendorInvoice />}
+    //     />
+    //     <Route path="work-orders/upload" element={<UploadWorkOrder />} />
+    //     <Route
+    //       path="purchase-orders/upload"
+    //       element={<UploadPurchaseOrder />}
+    //     />
+    //   </Route>
+    //   <Route path="products" element={<Products />} />
+
+    //   {/* Catch all */}
+    //   <Route path="*" element={<Navigate to="/sales/dashboard" replace />} />
+    // </Routes>
+    
     <Routes>
       <Route element={<SalesLayout />}>
         <Route index element={<Navigate to="dashboard" replace />} />
-        <Route path="dashboard" element={<SalesDashboard />} />
-        <Route path="work-orders" element={<WorkOrders />} />
-        <Route path="work-orders/create" element={<CreateWorkOrder />} />
-        <Route path="work-orders/upload" element={<UploadWorkOrder />} /> 
-        <Route path="purchase-orders/upload" element={<UploadPurchaseOrder />} />
-        <Route path="work-orders/:id" element={<WorkOrderDetails />} />
-        <Route path="purchase-orders" element={<PurchaseOrders />} />
-        <Route path="purchase-orders/:id" element={<PODetails />} />
-        <Route path="products" element={<Products />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="work-orders" element={<Dashboard />} />
+        <Route path="work-orders/upload" element={<UploadWorkOrder />} />
+        <Route path="challans" element={<Dashboard />} />
+        <Route path="challans/create" element={<CreateChallan />} />
+        <Route path="invoices" element={<Dashboard />} />
+        <Route path="invoices/upload" element={<UploadCustomerInvoice />} />
         <Route path="sales-stock" element={<SalesStock />} />
-        <Route
-          path="purchase-orders/:id/upload-invoice"
-          element={<UploadInvoice />}
-        />
+        <Route path="purchase-orders" element={<PurchaseOrderList />} />
+        <Route path="purchase-orders/create" element={<CreatePurchaseOrder />} />
+        <Route path="purchase-orders/upload-invoice" element={<UploadVendorInvoice />} />
+        <Route path="purchase-orders/upload" element={<UploadPurchaseOrder />} />
+        <Route path="products" element={<Products />} />
+        <Route path="*" element={<Navigate to="dashboard" replace />} />
       </Route>
     </Routes>
+ 
   );
 }
 
